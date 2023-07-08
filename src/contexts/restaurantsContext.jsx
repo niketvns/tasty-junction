@@ -1,5 +1,6 @@
 import {createContext, useContext, useState, useEffect} from "react";
 import {restaurantsData, cuisineData} from '../db/data.js'
+import restaurantDetails from "../pages/RestaurantDetails.jsx";
 
 const restaurantsContext = createContext()
 
@@ -14,8 +15,14 @@ const RestaurantsProvider = ({children}) => {
         return restaurants.find(restaurant => restaurant.id === id);
     }
 
+    const commentHandler = (comment, restaurantId) => {
+        setRestaurants(prevState => prevState.map(
+            restaurant => restaurant.id === restaurantId ? {...restaurant, ratings: [...restaurant.ratings, comment]} : restaurant
+        ) )
+    }
+
     return(
-        <restaurantsContext.Provider value={{filteredCuisines,findRestaurent, restaurants, cuisines, selectedCuisine, setSelectedCuisine}}>
+        <restaurantsContext.Provider value={{filteredCuisines,findRestaurent, restaurants, cuisines, selectedCuisine, setSelectedCuisine, commentHandler}}>
             {children}
         </restaurantsContext.Provider>
     )
