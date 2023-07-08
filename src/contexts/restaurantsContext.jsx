@@ -17,7 +17,7 @@ const RestaurantsProvider = ({children}) => {
 
     const commentHandler = (comment, restaurantId) => {
         setRestaurants(prevState => prevState.map(
-            restaurant => restaurant.id === restaurantId ? {...restaurant, ratings: [...restaurant.ratings, comment]} : restaurant
+            restaurant => restaurant.id === restaurantId ? {...restaurant, ratings: [comment, ...restaurant.ratings]} : restaurant
         ) )
     }
 

@@ -48,7 +48,7 @@ const RestaurantDetails = () => {
                                                 <img src={rating.pp} alt="profile" className={'w-8 rounded-full aspect-square object-fill'}/>
                                                 <p className={'font-bold'}>{rating.revName}</p>
                                             </div>
-                                            <div className="review bg-green-600 px-2 text-yellow-300 flex items-center gap-1">
+                                            <div className="review bg-green-600 px-2 text-yellow-300 flex items-center gap-1 rounded">
                                                 {rating.rating}<AiOutlineStar/>
                                             </div>
                                         </div>
